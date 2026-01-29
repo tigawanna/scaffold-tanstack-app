@@ -1,0 +1,51 @@
+{
+  "name": "scaffold-tanstack-app",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "A starter for creating a TypeScript package.",
+  "author": "tigawanna <tigawanna@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/tigawanna/scaffold-tanstack-app#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tigawanna/scaffold-tanstack-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tigawanna/scaffold-tanstack-app/issues"
+  },
+  "exports": {
+    ".": "./dist/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check",
+    "check-exports": "attw --pack . --ignore-rules=cjs-resolves-to-esm",
+    "prepublishOnly": "bpm run build && bpm run check-exports",
+    "pubish": "bumpp"
+  },
+  "keywords": [],
+  "dependencies": {
+    "@bomb.sh/args": "^0.3.1"
+  },
+  "devDependencies": {
+    "oxfmt": "^0.27.0",
+    "oxlint": "^1.42.0",
+    "tsdown": "^0.20.1",
+    "typescript": "^5.9.3",
+    "bumpp": "^10.4.0",
+    "vitest": "^4.0.18"
+  }
+}
